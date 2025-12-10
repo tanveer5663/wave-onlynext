@@ -6,7 +6,7 @@ export const POST = async (req) => {
   let pid;
   try {
     const { projectId, gitURL } = await req.json();
-
+    
     pid = projectId;
     const streamKey = `logs:${projectId}`;
     let lastId = "0";
@@ -56,7 +56,7 @@ export const POST = async (req) => {
     });
   } catch (error) {
     await db.collection("projects").doc(pid).delete();
-    // console.log(error);
+    console.log(error);
     if (
       error.message ==
       "No vite.config.js or react-scripts found in package.json"
