@@ -67,7 +67,7 @@ function Home({ repo, userId }) {
     setDeployPreviewURL("");
     setLogs([]);
     setError(null);
-    setLoading(false);
+ 
     try {
       const resp = await axios.post(`/api/project`, {
         gitURL: e || repoURL,
